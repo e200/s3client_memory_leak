@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - 4566:4566
+    environment:
+      - DEBUG=1
+      - LOCALSTACK_HOSTNAME=localhost
+      - AWS_DEFAULT_REGION=us-west-2
+      - EDGE_PORT=4566
+      - SERVICES=s3
+    volumes:
+      - "./create_s3_buckets.sh:/etc/localstack/init/ready.d/create_s3_buckets.sh"
