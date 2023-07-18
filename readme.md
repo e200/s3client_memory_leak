@@ -1,10 +1,11 @@
 # How to reproduce
 
 ```
+docker-compose up -d
 go run main.go
 ```
 
-Wait for it to finish uploading the files then:
+Wait for it to finish uploading the files, then:
 
 ```
 curl http://localhost:8000/debug/pprof/allocs > allocs.mem
